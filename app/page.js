@@ -1,102 +1,84 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import { Inter } from "next/font/google";
+import styles from "./page.module.css";
+import Image from "next/image";
+import WordAnimator from "./components/Wave/Wave";
+import Link from "next/link";
+import DownloadCV from "./components/DownloadCV/DownloadCV";
+import { saveAs } from "file-saver";
+import {
+  BsLinkedin,
+  BsGithub,
+  BsTwitter,
+  BsInstagram,
+  BsMedium,
+  BsYoutube,
+} from "react-icons/bs";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className={`${inter.className} ${styles.main}`}>
+      <div className="">
+        <Image src={`/svg3.svg`} alt="Logo" width={500} height={500} priority />
+      </div>
+      <div className="">
+        <div className={styles.ElevatorPitch}>
+          <p>Hello, I'm</p>
+          <WordAnimator word="Queens Kisivuli" />
+          <h2>Software Engineer</h2>
+          <p>
+            As a software engineer who is willing to learn and loves building, I
+            have a passion for programming and a drive to continuously improve
+            my skills. I am motivated by the challenge of solving complex
+            problems and enjoy exploring new technologies and programming
+            languages.
+          </p>
+          <div className={styles.btnContainer}>
+            <button
+              className={styles.homeBtn}
+              // onClick={() =>
+              //   saveAs(
+              //     "https://docs.google.com/document/d/1b6zDOMGYeksAIABBjD2W7RjRaj7XdAeO02pYhiH_tMQ/export?format=pdf",
+              //     "QueensKisivuliCV.pdf"
+              //   )
+              // }
+            >
+              Download CV
+            </button>
+            {/* <DownloadCV
+              className={styles.socialsContainer}
+              link="https://docs.google.com/document/d/1b6zDOMGYeksAIABBjD2W7RjRaj7XdAeO02pYhiH_tMQ/export?format=pdf"
+            /> */}
+            <Link href="/contact">
+              <button className={styles.homeBtn}>Contact Info</button>
+            </Link>
+          </div>
+          <div className={styles.socialsContainer}>
+            <Link
+              className="linkedin"
+              href="https://www.linkedin.com/in/queens-kisivuli-5405b2247/"
+            >
+              <BsLinkedin />
+            </Link>
+            <Link href="https://github.com/queensk">
+              <BsGithub />
+            </Link>
+            <Link href="https://medium.com/@queenskisivuli">
+              <BsMedium />
+            </Link>
+            <Link href="https://www.youtube.com/@dreamride7375">
+              <BsYoutube />
+            </Link>
+            <Link href="/">
+              <BsTwitter />
+            </Link>
+            <Link href="/">
+              <BsInstagram />
+            </Link>
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
-  )
+  );
 }
