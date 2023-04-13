@@ -1,0 +1,24 @@
+.wave-container {
+  display: "inline-flex";
+  gap: "10px";
+}
+.wavy {
+  position: relative;
+}
+.wavy span {
+  position: relative;
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 700;
+  /* color: #fff; */
+  /* text-transform: capitalize; */
+  animation: flip 3s infinite;
+  animation-delay: calc(0.3s * var(--i));
+}
+
+@keyframes flip {
+  0%,
+  80% {
+    transform: rotateY(360deg);
+  }
+}
