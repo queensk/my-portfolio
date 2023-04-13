@@ -15,7 +15,6 @@ function WordAnimator({ word }) {
               </span>
             ))}
           </span>
-          /* eslint react/no-unescaped-entities */
           {index < words.length - 1 && <span>&nbsp;</span>}
         </React.Fragment>
       ))}

@@ -24,7 +24,7 @@ export default function Home() {
       </div>
       <div className="">
         <div className={styles.ElevatorPitch}>
-          <p>Hello, I'm</p>
+          <p>{"Hello, I'm"}</p>
           <WordAnimator word="Queens Kisivuli" />
           <h2>Software Engineer</h2>
           <p>
