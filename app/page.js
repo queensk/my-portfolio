@@ -35,21 +35,12 @@ export default function Home() {
             languages.
           </p>
           <div className={styles.btnContainer}>
-            <button
-              className={styles.homeBtn}
-              // onClick={() =>
-              //   saveAs(
-              //     "https://docs.google.com/document/d/1b6zDOMGYeksAIABBjD2W7RjRaj7XdAeO02pYhiH_tMQ/export?format=pdf",
-              //     "QueensKisivuliCV.pdf"
-              //   )
-              // }
+            <Link
+              href="https://docs.google.com/document/d/1b6zDOMGYeksAIABBjD2W7RjRaj7XdAeO02pYhiH_tMQ/export?format=pdf"
+              download
             >
-              Download CV
-            </button>
-            {/* <DownloadCV
-              className={styles.socialsContainer}
-              link="https://docs.google.com/document/d/1b6zDOMGYeksAIABBjD2W7RjRaj7XdAeO02pYhiH_tMQ/export?format=pdf"
-            /> */}
+              <button className={styles.homeBtn}>Download CV</button>
+            </Link>
             <Link href="/contact">
               <button className={styles.homeBtn}>Contact Info</button>
             </Link>
