@@ -3,8 +3,6 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import WordAnimator from "./components/Wave/Wave";
 import Link from "next/link";
-import DownloadCV from "./components/DownloadCV/DownloadCV";
-import { saveAs } from "file-saver";
 import {
   BsLinkedin,
   BsGithub,
@@ -19,8 +17,14 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <main className={`${inter.className} ${styles.main}`}>
-      <div className="">
-        <Image src={`/svg3.svg`} alt="Logo" width={500} height={500} priority />
+      <div className={styles.profileIMGContainer}>
+        <Image
+          src={`/svg3.svg`}
+          alt="Logo"
+          fill="true"
+          priority
+          className={styles.profileIMG}
+        />
       </div>
       <div className="">
         <div className={styles.ElevatorPitch}>
@@ -47,24 +51,30 @@ export default function Home() {
           </div>
           <div className={styles.socialsContainer}>
             <Link
-              className="linkedin"
+              className={styles.linkedin}
               href="https://www.linkedin.com/in/queens-kisivuli-5405b2247/"
             >
               <BsLinkedin />
             </Link>
-            <Link href="https://github.com/queensk">
+            <Link className={styles.github} href="https://github.com/queensk">
               <BsGithub />
             </Link>
-            <Link href="https://medium.com/@queenskisivuli">
+            <Link
+              className={styles.medium}
+              href="https://medium.com/@queenskisivuli"
+            >
               <BsMedium />
             </Link>
-            <Link href="https://www.youtube.com/@dreamride7375">
+            <Link
+              className={styles.youtube}
+              href="https://www.youtube.com/@dreamride7375"
+            >
               <BsYoutube />
             </Link>
-            <Link href="/">
+            <Link className={styles.twitter} href="/">
               <BsTwitter />
             </Link>
-            <Link href="/">
+            <Link className={styles.instagram} href="/">
               <BsInstagram />
             </Link>
           </div>
