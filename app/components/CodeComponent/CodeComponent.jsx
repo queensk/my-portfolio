@@ -1,39 +1,18 @@
 "use client";
-import React, { useRef, useEffect } from "react";
-import ReactMarkdown from "react-markdown";
+import React, { useEffect } from "react";
 import hljs from "highlight.js";
+import "highlight.js/styles/monokai-sublime.css";
 
-const CodeComponent = ({ code }) => {
-  const preRef = useRef(null);
-
+function CodeHighlighter({ code, language }) {
   useEffect(() => {
-    try {
-      hljs.highlightBlock(preRef.current);
-    } catch (error) {
-      console.error(error);
-    }
+    hljs.initHighlightingOnLoad();
   }, [code]);
 
-  const renderers = {
-    code: ({ node, inline, className, children, ...props }) => {
-      const match = /language-(\w+)/.exec(className || "");
-      return !inline && match ? (
-        <pre className={`hljs ${match[1]}`} ref={preRef} {...props}>
-          <code>{children}</code>
-        </pre>
-      ) : (
-        <code className={className} {...props}>
-          {children}
-        </code>
-      );
-    },
-  };
-
   return (
-    <div className="code-container">
-      <ReactMarkdown children={code} renderers={renderers} />
-    </div>
+    <pre>
+      <code className={language}>{code}</code>
+    </pre>
   );
-};
+}
 
-export default CodeComponent;
+export default CodeHighlighter;
